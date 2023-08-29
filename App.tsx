@@ -4,11 +4,9 @@ import { ListInput } from "./src/input";
 import React from "react";
 
 export default function App() {
-  const [text, onChangeText] = React.useState("Text");
-
   return (
     <View style={styles.container}>
-      <ListInput onChangeText={onChangeText} value={text}></ListInput>
+      <ListInput />
       <StatusBar style="auto" />
     </View>
   );
@@ -17,8 +15,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#000000",
+    paddingTop: 25,
+    paddingLeft: 25,
   },
 });

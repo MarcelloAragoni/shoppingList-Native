@@ -1,11 +1,28 @@
 /* eslint-disable react/react-in-jsx-scope */
+import { Alert, Button } from "react-native";
+import { useForm } from "react-hook-form";
 import * as Styled from "./input.styled";
-import { ListInputType } from "./types";
+import { useEffect } from "react";
 
-export function ListInput({ onChangeText, value }: ListInputType) {
+export function ListInput() {
+  const { register, setValue, handleSubmit } = useForm();
+
+  const onSubmit = (data: { todoItem: string }) => Alert.alert(data.todoItem);
+
+  useEffect(() => {
+    register("todoItem");
+  }, [register]);
+
   return (
-    <Styled.container>
-      <Styled.input onChangeText={onChangeText} value={value} />
-    </Styled.container>
+    <Styled.Container>
+      <Styled.TitleText>Todo List</Styled.TitleText>
+      <Styled.FormContainer>
+        <Styled.InputArea
+          placeholder={"Type your Todo Task"}
+          onChangeText={(text) => setValue("todoItem", text)}
+        />
+        <Button onPress={handleSubmit(onSubmit)} title="Add" color="#fff" />
+      </Styled.FormContainer>
+    </Styled.Container>
   );
 }

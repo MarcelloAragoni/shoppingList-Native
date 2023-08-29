@@ -1,11 +1,26 @@
 import styled from "styled-components/native";
 
-export const container = styled.View`
+export const Container = styled.View`
   display: flex;
   width: 80%;
-  border: black;
 `;
 
-export const input = styled.TextInput`
+export const FormContainer = styled.View`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const InputArea = styled.TextInput`
+  flex: 3;
   color: black;
+  background-color: #a9a9a9;
+  padding: 15px;
+  border-radius: 15px;
+  color: #000;
+`;
+
+export const TitleText = styled.Text`
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
 `;
