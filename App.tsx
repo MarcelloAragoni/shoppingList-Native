@@ -1,11 +1,14 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { ListInput } from "./src/input";
+import React from "react";
 
 export default function App() {
+  const [text, onChangeText] = React.useState("Text");
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <ListInput onChangeText={onChangeText} value={text}></ListInput>
       <StatusBar style="auto" />
     </View>
   );
