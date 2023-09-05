@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "1.18.2",
+    "@react-native-community/checkbox": "^0.5.16",
     "eslint-config-prettier": "^9.0.0",
     "expo": "~49.0.8",
     "expo-status-bar": "~1.6.0",
@@ -16,8 +18,8 @@
     "react": "18.2.0",
     "react-hook-form": "^7.45.4",
     "react-native": "0.72.4",
-    "styled-components": "^6.0.7",
-    "@react-native-async-storage/async-storage": "1.18.2"
+    "react-native-bouncy-checkbox": "^3.0.7",
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

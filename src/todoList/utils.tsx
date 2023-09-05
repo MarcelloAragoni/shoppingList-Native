@@ -10,8 +10,6 @@ export const STORAGE_KEY_TASK_LIST = "NEW_KEY_TASK_LIST_4";
 export const getItemFromStorage = async (key: string) => {
   const items = await AsyncStorage.getItem(key);
 
-  console.log({ items });
-
   return items || [];
 };
 

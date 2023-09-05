@@ -37,7 +37,7 @@ export default function TodoList() {
     <>
       <ListInput task={newTask} onChange={setNewTask} getList={getData} />
       <Styled.TodoList>
-        {listItems.map((item: TaskType) => (
+        {listItems?.map((item: TaskType) => (
           <Styled.ListView key={item.id}>
             <TodoItem item={item.name} />
             <AppButton onPress={() => handleDeleteItem(item.id)} title="DEL" />
