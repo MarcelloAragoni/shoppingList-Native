@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
-import { ListInput } from "./src/input";
 import React from "react";
+import TodoList from "./src/todoList/todoList";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <ListInput />
+      <TodoList />
       <StatusBar style="auto" />
     </View>
   );

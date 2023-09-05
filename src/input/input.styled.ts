@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   display: flex;
-  width: 80%;
+  margin-right: 25px;
 `;
 
 export const FormContainer = styled.View`
@@ -11,7 +11,7 @@ export const FormContainer = styled.View`
 `;
 
 export const InputArea = styled.TextInput`
-  flex: 3;
+  flex: 4;
   color: black;
   background-color: #a9a9a9;
   padding: 15px;

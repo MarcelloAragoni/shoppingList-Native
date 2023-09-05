@@ -1,17 +1,35 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Alert, Button } from "react-native";
-import { useForm } from "react-hook-form";
 import * as Styled from "./input.styled";
-import { useEffect } from "react";
+import { AppButton } from "../button";
+import {
+  STORAGE_KEY_TASK_LIST,
+  getItemFromStorage,
+  setItemToStorage,
+} from "../todoList/utils";
 
-export function ListInput() {
-  const { register, setValue, handleSubmit } = useForm();
+export function ListInput({ task, onChange, getList }: any) {
+  async function onSubmit() {
+    const newTask = {
+      id: `${Math.floor(Date.now() * Math.random()).toString(36)}`,
+      name: task,
+    };
 
-  const onSubmit = (data: { todoItem: string }) => Alert.alert(data.todoItem);
+    const currentTaskList = await getItemFromStorage(STORAGE_KEY_TASK_LIST);
 
-  useEffect(() => {
-    register("todoItem");
-  }, [register]);
+    let updatedTaskList = [];
+
+    if (currentTaskList && currentTaskList.length > 0) {
+      const currentTasksParse = JSON.parse(currentTaskList as any);
+
+      updatedTaskList = [...currentTasksParse, newTask];
+    } else {
+      updatedTaskList = [newTask];
+    }
+
+    setItemToStorage(STORAGE_KEY_TASK_LIST, updatedTaskList);
+
+    getList();
+  }
 
   return (
     <Styled.Container>
@@ -19,9 +37,10 @@ export function ListInput() {
       <Styled.FormContainer>
         <Styled.InputArea
           placeholder={"Type your Todo Task"}
-          onChangeText={(text) => setValue("todoItem", text)}
+          value={task}
+          onChangeText={onChange}
         />
-        <Button onPress={handleSubmit(onSubmit)} title="Add" color="#fff" />
+        <AppButton title="ADD" onPress={onSubmit} />
       </Styled.FormContainer>
     </Styled.Container>
   );
